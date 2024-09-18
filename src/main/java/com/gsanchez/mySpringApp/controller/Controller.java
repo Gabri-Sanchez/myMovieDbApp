@@ -1,4 +1,8 @@
-package com.gsanchez.mySpringApp;
+package com.gsanchez.mySpringApp.controller;
+import com.gsanchez.mySpringApp.domain.Movie;
+import com.gsanchez.mySpringApp.service.SearchService;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.reactive.function.client.WebClientSsl;
@@ -24,8 +28,14 @@ public class Controller {
     }
 
     @GetMapping("/search")
-    public Mono<String> handleSearch(@RequestParam(name = "title") String query, @RequestParam(name = "year", defaultValue = "") String year
+    public Mono<List<Movie>> handleSearch(@RequestParam(name = "title") String query, @RequestParam(name = "year", defaultValue = "") String year
     ){
         return searchService.handleSearch(query, year);
     }
+
+    /*@GetMapping("/login")
+    public String login() {
+        return "login"; // Corresponds to login.html in templates directory
+    }
+    */
 }

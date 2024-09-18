@@ -1,4 +1,4 @@
-package com.gsanchez.mySpringApp;
+package com.gsanchez.mySpringApp.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -17,4 +17,5 @@ public class WebClientConfig {
             .defaultHeader("Authorization", "Bearer " + key)
             .build();
     }
+    
 }
